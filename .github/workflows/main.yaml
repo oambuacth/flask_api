@@ -20,6 +20,12 @@ jobs:
         with:
           languages: python
 
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
+
+
       - name: Set up Python version
         uses: actions/setup-python@v4
         with:
