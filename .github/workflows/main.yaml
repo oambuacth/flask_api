@@ -28,6 +28,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Analyze with CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
