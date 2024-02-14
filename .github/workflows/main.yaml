@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Analyze with CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+
       - name: Set up Python version
         uses: actions/setup-python@v4
         with:
@@ -27,11 +32,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Analyze with CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: python
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
